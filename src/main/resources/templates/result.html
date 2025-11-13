@@ -128,10 +128,14 @@
       <p>First Number: <strong th:text="${num1}"></strong></p>
       <p>Second Number: <strong th:text="${num2}"></strong></p>
     </div>
-
+	
+	<p th:if="${msg}">
+	    <b style="color:red;" th:text="${msg}"></b>
+	</p>
+     <pth:if="${!msg}">
     <div class="result-value">
       Result: <span th:text="${res}"></span>
-    </div>
+    </div></p>
 
     <a href="/" class="back-btn">← Back to Calculator</a>
   </div>
