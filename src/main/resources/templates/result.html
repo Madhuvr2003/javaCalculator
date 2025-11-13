@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculation Result</title>
+
+  <style>
+    /* ===== Reset & Base ===== */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Poppins", sans-serif;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #43cea2 0%, #185a9d 100%);
+      color: #fff;
+      overflow: hidden;
+    }
+
+    /* ===== Card ===== */
+    .result-card {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 40px 50px;
+      border-radius: 25px;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+      text-align: center;
+      max-width: 420px;
+      width: 90%;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      animation: fadeIn 0.8s ease-in-out;
+    }
+
+    .result-card h1 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+      background: linear-gradient(90deg, #00e676, #00bcd4);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+    }
+
+    .details {
+      text-align: left;
+      margin-top: 10px;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    .details p {
+      margin-bottom: 8px;
+      font-size: 1rem;
+      line-height: 1.6;
+    }
+
+    .result-value {
+      margin-top: 25px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 15px;
+      padding: 18px 15px;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 600;
+      text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.3);
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes glow {
+      from { box-shadow: 0 0 10px rgba(0, 255, 204, 0.4); }
+      to { box-shadow: 0 0 25px rgba(0, 255, 204, 0.8); }
+    }
+
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      border: none;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #ff6a00, #ee0979);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: 0.3s ease;
+      box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    .back-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @media (max-width: 480px) {
+      .result-card {
+        padding: 30px 25px;
+      }
+
+      .result-card h1 {
+        font-size: 1.6rem;
+      }
+
+      .result-value {
+        font-size: 1.3rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="result-card">
+    <h1>✨ Calculation Result</h1>
+
+    <div class="details">
+      <p>Operation: <strong th:text="${op}"></strong></p>
+      <p>First Number: <strong th:text="${num1}"></strong></p>
+      <p>Second Number: <strong th:text="${num2}"></strong></p>
+    </div>
+
+    <div class="result-value">
+      Result: <span th:text="${res}"></span>
+    </div>
+
+    <a href="/" class="back-btn">← Back to Calculator</a>
+  </div>
+</body>
+</html>
