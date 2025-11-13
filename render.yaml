@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: calculator-app-01   # 👈 unique name (change if needed)
-    env: java
+    name: calculator-app
+    env: docker
     plan: free
-    buildCommand: "./mvnw clean package -DskipTests"
-    startCommand: "java -jar target/*.jar"
+    dockerCommand: ./mvnw clean package -DskipTests && java -jar target/*.jar
