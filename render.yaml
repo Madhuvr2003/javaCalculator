@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: calculator-app-01   # 👈 unique name (change if needed)
+    env: java
+    plan: free
+    buildCommand: "./mvnw clean package -DskipTests"
+    startCommand: "java -jar target/*.jar"
